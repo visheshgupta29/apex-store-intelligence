@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Retail — Store Intelligence</title>
+  <style>
+    :root { --bg:#0f1117; --card:#1a1d29; --accent:#7c5cff; --good:#22c55e; --warn:#f59e0b; --crit:#ef4444; --muted:#8b90a0; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:#e8eaf0; }
+    header { padding:20px 28px; border-bottom:1px solid #232634; display:flex; align-items:center; gap:16px; }
+    header h1 { font-size:18px; margin:0; font-weight:600; }
+    .pill { font-size:12px; padding:4px 10px; border-radius:999px; background:#232634; color:var(--muted); }
+    .controls { margin-left:auto; display:flex; gap:8px; align-items:center; }
+    input { background:#232634; border:1px solid #2e3344; color:#e8eaf0; padding:8px 10px; border-radius:8px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; padding:24px 28px; }
+    .card { background:var(--card); border:1px solid #232634; border-radius:14px; padding:18px; }
+    .card h3 { margin:0 0 8px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:600; }
+    .metric { font-size:30px; font-weight:700; }
+    .sub { font-size:12px; color:var(--muted); margin-top:4px; }
+    section { padding:0 28px 28px; }
+    section h2 { font-size:14px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    .funnel-row { display:flex; align-items:center; gap:12px; margin:8px 0; }
+    .bar { height:26px; background:linear-gradient(90deg,var(--accent),#5a3fd6); border-radius:6px; min-width:2px; }
+    .funnel-label { width:130px; font-size:13px; }
+    .funnel-count { width:60px; text-align:right; font-weight:600; }
+    .drop { color:var(--crit); font-size:12px; width:70px; }
+    .anom { padding:10px 14px; border-radius:10px; margin:6px 0; font-size:13px; border-left:4px solid var(--muted); background:#191c27; }
+    .INFO { border-color:#3b82f6; } .WARN { border-color:var(--warn); } .CRITICAL { border-color:var(--crit); }
+    .status-OK { color:var(--good); } .status-STALE_FEED { color:var(--warn); } .status-NO_DATA { color:var(--muted); }
+    .live { width:8px; height:8px; border-radius:50%; background:var(--good); display:inline-block; animation:pulse 1.4s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️ Apex Retail — Store Intelligence</h1>
+    <span class="pill"><span class="live"></span> live · refresh 3s</span>
+    <div class="controls">
+      <label class="sub">Store</label>
+      <input id="store" value="ST1076" />
+    </div>
+  </header>
+
+  <div class="grid" id="metrics"></div>
+
+  <section>
+    <h2>Conversion Funnel</h2>
+    <div id="funnel"></div>
+  </section>
+
+  <section>
+    <h2>Anomalies</h2>
+    <div id="anomalies"></div>
+  </section>
+
+  <section>
+    <h2>Health</h2>
+    <div id="health" class="sub"></div>
+  </section>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const api = (path) => fetch(path).then(r => r.json());
+
+    function card(title, value, sub='') {
+      return `<div class="card"><h3>${title}</h3><div class="metric">${value}</div><div class="sub">${sub}</div></div>`;
+    }
+
+    async function refresh() {
+      const store = $('store').value.trim();
+      try {
+        const m = await api(`/stores/${store}/metrics`);
+        $('metrics').innerHTML = [
+          card('Unique Visitors', m.unique_visitors),
+          card('Conversion Rate', (m.conversion_rate*100).toFixed(1)+'%', `${m.converted_visitors} purchased`),
+          card('Avg Dwell', (m.avg_dwell_ms/1000).toFixed(1)+'s'),
+          card('Queue Depth', m.queue_depth),
+          card('Abandonment', (m.abandonment_rate*100).toFixed(1)+'%'),
+        ].join('');
+
+        const f = await api(`/stores/${store}/funnel`);
+        const max = Math.max(1, ...f.stages.map(s => s.count));
+        $('funnel').innerHTML = f.stages.map(s => `
+          <div class="funnel-row">
+            <span class="funnel-label">${s.stage}</span>
+            <div class="bar" style="width:${(s.count/max)*340}px"></div>
+            <span class="funnel-count">${s.count}</span>
+            <span class="drop">${s.drop_off_pct ? '▼'+s.drop_off_pct+'%' : ''}</span>
+          </div>`).join('');
+
+        const a = await api(`/stores/${store}/anomalies`);
+        $('anomalies').innerHTML = a.anomalies.length
+          ? a.anomalies.map(x => `<div class="anom ${x.severity}"><b>${x.severity}</b> · ${x.type} — ${x.suggested_action}</div>`).join('')
+          : '<div class="sub">No anomalies detected.</div>';
+
+        const h = await api('/health');
+        $('health').innerHTML = `<span class="status-${h.status}">● ${h.status}</span> · last event: ${h.last_event_timestamp || '—'} · lag: ${h.feed_lag_seconds ?? '—'}s`;
+      } catch (e) {
+        $('health').innerHTML = `<span class="status-NO_DATA">● API unreachable</span>`;
+      }
+    }
+
+    refresh();
+    setInterval(refresh, 3000);
+  </script>
+</body>
+</html>

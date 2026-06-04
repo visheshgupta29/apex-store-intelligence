@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    container_name: store-intelligence-api
+    ports:
+      - "8000:8000"
+    environment:
+      STORE_DB: /srv/data/store_intel.db
+      # Optional: mount and point at a POS CSV to enable conversion correlation.
+      # POS_CSV: /srv/seed/pos_transactions.csv
+    volumes:
+      - store_data:/srv/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  store_data:

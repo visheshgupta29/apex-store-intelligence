@@ -1,0 +1,26 @@
+# Datasets / media — never commit per challenge rules
+data/
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.csv
+*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# DB artifacts
+*.db
+*.sqlite
+*.sqlite3
+
+# OS / editor
+.DS_Store
+.vscode/
