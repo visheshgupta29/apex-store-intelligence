@@ -1,0 +1,291 @@
+[
+  {
+    "event_id": "b7dd5ba8-6f0b-4b03-a74d-b3a3e19c393c",
+    "store_id": "ST1076",
+    "camera_id": "cam1",
+    "visitor_id": "ID_60001",
+    "event_type": "ENTRY",
+    "timestamp": "2026-03-08T18:10:05.120000Z",
+    "zone_id": null,
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": null,
+      "session_seq": 1
+    }
+  },
+  {
+    "event_id": "a68af501-036f-4375-8db3-8cd7ea505617",
+    "store_id": "ST1076",
+    "camera_id": "cam1",
+    "visitor_id": "ID_60002",
+    "event_type": "ENTRY",
+    "timestamp": "2026-03-08T18:10:22.480000Z",
+    "zone_id": null,
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": null,
+      "session_seq": 1
+    }
+  },
+  {
+    "event_id": "5ae172d8-8418-48ac-bf36-58f6118b999a",
+    "store_id": "ST1076",
+    "camera_id": "cam1",
+    "visitor_id": "ID_60003",
+    "event_type": "ENTRY",
+    "timestamp": "2026-03-08T18:10:24.920000Z",
+    "zone_id": null,
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": null,
+      "session_seq": 1
+    }
+  },
+  {
+    "event_id": "eeb56af0-de4f-4ce0-a2a6-50b698e8ac1c",
+    "store_id": "ST1076",
+    "camera_id": "CAM2",
+    "visitor_id": "T101",
+    "event_type": "ZONE_ENTER",
+    "timestamp": "2026-03-08T18:10:45.280000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Left Shelf",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "c7fde011-708c-493a-b101-c667ab45c611",
+    "store_id": "ST1076",
+    "camera_id": "CAM2",
+    "visitor_id": "T101",
+    "event_type": "ZONE_DWELL",
+    "timestamp": "2026-03-08T18:10:45.280000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z01",
+    "dwell_ms": 33440,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Left Shelf",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "85e0b079-22fd-4d2c-889f-d63a71ab6de9",
+    "store_id": "ST1076",
+    "camera_id": "CAM3",
+    "visitor_id": "T102",
+    "event_type": "ZONE_ENTER",
+    "timestamp": "2026-03-08T18:11:02.160000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z02",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Center Display",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "d13fde2f-c90a-47b2-9f26-f6c89aae92aa",
+    "store_id": "ST1076",
+    "camera_id": "CAM3",
+    "visitor_id": "T102",
+    "event_type": "ZONE_DWELL",
+    "timestamp": "2026-03-08T18:11:02.160000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z02",
+    "dwell_ms": 42760,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Center Display",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "7ae4a46b-11cb-4432-9293-c7d44f65618e",
+    "store_id": "ST1076",
+    "camera_id": "CAM2",
+    "visitor_id": "T101",
+    "event_type": "ZONE_EXIT",
+    "timestamp": "2026-03-08T18:11:18.720000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Left Shelf",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "988c02f1-c28b-4640-8854-f44ba3d8350f",
+    "store_id": "ST1076",
+    "camera_id": "CAM3",
+    "visitor_id": "T102",
+    "event_type": "ZONE_EXIT",
+    "timestamp": "2026-03-08T18:11:44.920000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z02",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Center Display",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "f32cf258-97bf-4f18-b808-c06c515077ed",
+    "store_id": "ST1076",
+    "camera_id": "CAM4",
+    "visitor_id": "T103",
+    "event_type": "ZONE_ENTER",
+    "timestamp": "2026-03-08T18:12:05.520000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z03",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Lipstick Aisle",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "c9092484-bd70-4085-ac3d-81f0d0bfbea6",
+    "store_id": "ST1076",
+    "camera_id": "CAM4",
+    "visitor_id": "T103",
+    "event_type": "ZONE_DWELL",
+    "timestamp": "2026-03-08T18:12:05.520000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z03",
+    "dwell_ms": 47360,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Lipstick Aisle",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "fedde830-0746-4cfa-9d03-533914dc92a5",
+    "store_id": "ST1076",
+    "camera_id": "cam1",
+    "visitor_id": "ID_60001",
+    "event_type": "EXIT",
+    "timestamp": "2026-03-08T18:12:44.360000Z",
+    "zone_id": null,
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": null,
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "9da61c23-1d93-40aa-86f0-e3d80c2c2dee",
+    "store_id": "ST1076",
+    "camera_id": "CAM4",
+    "visitor_id": "T103",
+    "event_type": "ZONE_EXIT",
+    "timestamp": "2026-03-08T18:12:52.880000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z03",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": null,
+      "sku_zone": "Lipstick Aisle",
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "0e2149b5-3fe8-4c5f-b3a7-ee8803d6ab94",
+    "store_id": "ST1076",
+    "camera_id": "PURPLLE_MUM_1076_CAM6",
+    "visitor_id": "T101",
+    "event_type": "BILLING_QUEUE_JOIN",
+    "timestamp": "2026-03-08T18:12:58.240000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": 4,
+      "sku_zone": null,
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "a1085adb-6955-448b-92f4-d8484570c32d",
+    "store_id": "ST1076",
+    "camera_id": "PURPLLE_MUM_1076_CAM6",
+    "visitor_id": "T102",
+    "event_type": "BILLING_QUEUE_JOIN",
+    "timestamp": "2026-03-08T18:13:05.080000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": 2,
+      "sku_zone": null,
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "260d1339-d397-4e45-a267-f988452dac81",
+    "store_id": "ST1076",
+    "camera_id": "PURPLLE_MUM_1076_CAM6",
+    "visitor_id": "T103",
+    "event_type": "BILLING_QUEUE_JOIN",
+    "timestamp": "2026-03-08T18:13:42.360000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": 3,
+      "sku_zone": null,
+      "session_seq": null
+    }
+  },
+  {
+    "event_id": "f366d5c2-c88f-4b0a-afcb-e5b5223d09d6",
+    "store_id": "ST1076",
+    "camera_id": "PURPLLE_MUM_1076_CAM6",
+    "visitor_id": "T101",
+    "event_type": "BILLING_QUEUE_ABANDON",
+    "timestamp": "2026-03-08T18:14:02.880000Z",
+    "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+    "dwell_ms": null,
+    "is_staff": false,
+    "confidence": 0.9,
+    "metadata": {
+      "queue_depth": 4,
+      "sku_zone": null,
+      "session_seq": null
+    }
+  }
+]

@@ -1,0 +1,21 @@
+# Render.com blueprint — one-click deploy of the Store Intelligence API.
+# Render builds the Dockerfile in the cloud (no local Docker/proxy needed).
+# After deploy, the dashboard is at: https://<service>.onrender.com/dashboard
+services:
+  - type: web
+    name: apex-store-intelligence
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: STORE_DB
+        value: /srv/data/store_intel.db
+      # Auto-load bundled demo events on boot so the dashboard always has data,
+      # even after the free tier's ephemeral storage resets.
+      - key: SEED_ON_STARTUP
+        value: "1"
+      # Rebase seed timestamps to "now" so /health shows a fresh feed.
+      - key: SEED_REBASE_TIME
+        value: "1"

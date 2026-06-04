@@ -40,6 +40,24 @@ python emit.py --api http://localhost:8000 --file ../data/sample_eventsbe42122.j
 Optional POS correlation (enables conversion): set `POS_CSV` to a transactions CSV
 before startup (supports both the canonical and the real Purplle line-item schema).
 
+## Deploy a live demo (Render.com)
+
+Render builds the Dockerfile in the cloud, so no local Docker is needed.
+
+1. Push this repo to GitHub.
+2. On [render.com](https://render.com): **New → Blueprint**, select the repo. It
+   reads `render.yaml` and provisions the service.
+3. The blueprint sets `SEED_ON_STARTUP=1`, so the instance auto-loads bundled
+   demo events (`seed/seed_events.json`) with timestamps rebased to "now" — the
+   dashboard and `/health` show live data immediately.
+4. Open `https://<service>.onrender.com/dashboard`.
+
+To seed any running instance manually instead:
+
+```bash
+python emit.py --api https://<host> --file ../data/sample_eventsbe42122.jsonl
+```
+
 ## API
 
 | Method | Endpoint | Description |

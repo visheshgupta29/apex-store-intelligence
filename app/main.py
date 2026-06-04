@@ -19,6 +19,7 @@ from .ingestion import MAX_BATCH, ingest_events
 from .logging import StructuredLoggingMiddleware
 from .metrics import compute_metrics, parse_ts
 from .models import IngestRequest
+from .seed import seed_if_requested
 
 STALE_FEED_SECONDS = 600
 
@@ -50,6 +51,7 @@ def _startup() -> None:
     if pos_csv:
         loaded = load_pos_csv(pos_csv)
         print(f'{{"event": "pos_loaded", "transactions": {loaded}}}')
+    seed_if_requested()
 
 
 @app.post("/events/ingest")
