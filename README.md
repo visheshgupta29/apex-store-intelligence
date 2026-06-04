@@ -6,6 +6,17 @@ a conversion funnel, anomaly detection, and a live web dashboard.
 
 > **North Star — Offline Store Conversion Rate** = visitors who purchased ÷ total unique visitors.
 
+## 🔴 Live Demo
+
+- **Dashboard:** https://apex-store-intelligence-3c9r.onrender.com/dashboard (store `ST1076`)
+- **API docs:** https://apex-store-intelligence-3c9r.onrender.com/docs
+- **Health:** https://apex-store-intelligence-3c9r.onrender.com/health
+
+> Hosted on Render free tier — the instance sleeps after inactivity (first
+> request may take ~50s to wake) and resets its in-memory data on restart. If the
+> dashboard is empty, seed it with:
+> `python scripts/seed_remote.py https://apex-store-intelligence-3c9r.onrender.com`
+
 ## Architecture
 
 ```
